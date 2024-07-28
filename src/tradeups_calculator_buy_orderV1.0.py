@@ -117,9 +117,9 @@ def find_best_item(input_prices):
         probability_percentage = min(probability_percentage, 100)
         probability_value = probability_percentage / 100
         return float('inf') if probability_percentage == 0 else \
-                input_price
-               #input_price * ((1 / probability_value) - (((1 / probability_value) - 1) * (1/STEAM_TAX_THRESHOLD)))
+                input_price * ((1 / probability_value) - (((1 / probability_value) - 1) * (1/STEAM_TAX_THRESHOLD))) #input_price
 
+                
     costs = [calculate_cost(item[4], item[5]) for item in input_prices]
     for item, cost in zip(input_prices, costs):
         item.append(cost)
@@ -195,7 +195,7 @@ def process_case(case, skins_df, market_data_df):
 
                     theoretical_max_profitability = avg_output_price / total_input_price
                     inputs_wear_category = get_wear_category(best_item[3])
-                    if theoretical_max_profitability >= STEAM_TAX_THRESHOLD:
+                    if profitability >= STEAM_TAX_THRESHOLD:
                         profitable_tradeups.append({
                             'Case': best_item[0],
                             'Input Skin': best_item[1],
@@ -227,7 +227,7 @@ def main():
             all_profitable_tradeups.extend(future.result())
 
     # Sort the tradeups
-    sorted_tradeups = sorted(all_profitable_tradeups, key=itemgetter('Theoretical Max Profitablity'), reverse=True)
+    sorted_tradeups = sorted(all_profitable_tradeups, key=itemgetter('Real Profitablity'), reverse=True)
 
     # Save to JSONL file
     def custom_json_dump(obj, file):

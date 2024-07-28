@@ -36,3 +36,7 @@ for command in commands:
     print(f"Started: {command}")
 
 print(f"Launched {len(commands)} parallel processes.")
+
+# End of script
+# EVOTORCH_v1.0_RUNNER.py
+

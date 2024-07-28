@@ -12,9 +12,15 @@ items_with_profitability = []
 
 # Function to calculate profitability
 def calculate_profitability(prices, price_deviation):
-    ratio = sum(prices) / (sum(prices) - price_deviation)
-    profitability = 100 * (1.05 / ratio)
-    return profitability
+    if price_deviation<=0:
+
+        print('deviation:',price_deviation)
+
+        profitability = ((sum(prices) / len(prices))-price_deviation) / (sum(prices) / len(prices))
+
+        return profitability
+    else:
+        return 0.0
 
 # Get the directory of the current script
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -44,7 +50,7 @@ for filepath in glob.glob(os.path.join(current_dir, "best*.txt")):
             floats = best_individual_values[half_length:]
 
             # Check if float_deviation <= 0
-            if float_deviation <= 0:
+            if float_deviation <= 0: #change to 0
                 # Calculate profitability
                 tradeup_profitability = calculate_profitability(prices, price_deviation)
 
@@ -62,14 +68,15 @@ for filepath in glob.glob(os.path.join(current_dir, "best*.txt")):
                     f"{best_individual}\n"
                     f"price_deviation: {price_deviation}\n"
                     f"float_deviation: {float_deviation}\n"
-                    f"Profitability: {overall_profitability}\n"
+                    f"Profitability: {tradeup_profitability}\n"  # using tradeup profitabilty as currently only 1 tradeup per individual
                     f"Total Price: {total_price}\n"
                     f"---------------------------------"
                 )
-                items_with_profitability.append((item_details, overall_profitability,total_price))
+                items_with_profitability.append((item_details, tradeup_profitability,total_price))
+
 
 # Sort the items by profitability in descending order
-sorted_items = sorted(items_with_profitability, key=lambda x: x[2], reverse=False)
+sorted_items = sorted(items_with_profitability, key=lambda x: x[1], reverse=True)
 
 # Save the sorted items to a new text file in the current directory
 output_filepath = os.path.join(current_dir, "sorted_tradeup_lists.txt")

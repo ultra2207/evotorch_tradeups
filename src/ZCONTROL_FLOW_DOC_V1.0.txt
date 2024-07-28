@@ -1,0 +1,32 @@
+
+FULL RUN:
+    run (optional) vpn_server_list_updaterV1.0.py
+    run market_data_collectorV1.0.py which makes searched_makret_data.csv
+    run inputs_data_collectorV1.0.py which saves the items to steamjsons
+    run inputs_csv_makerV1.0.py which converts the steamjsons into steam_data.csv
+
+    run steam_data_processorV1.0.py which requests csfloat and saves data to steam_data_processed.csv here
+    (here if needed run it partially then use yet_to_process_makerV1.0.py to make yet_to_process.csv and
+    then replace csv_file_path = 'steam_data.csv' on line 97 in steam_data_processorV1.0.py with csv_file_path = 'yet_to_process.csv'
+    and run it again which will complete it)
+
+    run tradeups_calculator_buy_orderV1.0.py which takes searched_makret_data.csv and makes it into profitable_tradeups.jsonl
+    run combos_generatorV1.0.py which reads profitable_tradeups.jsonl and saves to combos_to_check.jsonl
+    run processed_items_makerV1.0.py which reads steam_data_processed.csv and saves the final evotorch data to processed_items.csv
+    run EVOTORCH_V1.0.py using EVOTORCH_v1.0_RUNNER.py which saves the items to best_individuals_{start_index}_to_{end_index}.txt so multiple txt will be made
+    run sorted_tradeup_lists_makerV1.0.py which reads all of the txt files and puts them all into 1 sorted txt file which only includes valid ones
+    
+    run sorted_tradeup_lists_processorV1.0.py which processs it into a json tradeup_expanded_items.json
+    use this directly as only using 1 tradeup per individual
+
+PARTIAL RUN:
+    No partial run as project shelved at V0.1
+
+
+Note: 
+    The final tradeup_expanded_items.json does end up having 28 valid profitable tradeups so project considered a success in theory
+    but in reality there are too few tradeups for it to be considered worth doing, hence permanently shelved with no further development.
+
+FULLY SHELVED.
+
+

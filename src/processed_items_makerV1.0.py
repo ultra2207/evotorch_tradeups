@@ -33,7 +33,7 @@ def get_MULTIPLIER(file_path='.temp/cached_usd.json', url='https://cdn.jsdelivr.
     # Extract and return the USD/INR rate
     try:
         usd_inr_rate = data['usd']['inr']
-        return usd_inr_rate/(10*1.15*1.05)
+        return usd_inr_rate/(10*1.15)
     
     except KeyError:
         print("USD/INR rate not found in the data.")

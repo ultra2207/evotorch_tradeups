@@ -84,8 +84,6 @@ def generate_individual(tradeup_data):
     return selected_items
 
 
-import random
-from typing import List, Dict, Any
 
 class CustomMutation(Operator):
     @profiler
@@ -275,11 +273,11 @@ def evaluate(individual, avg_float, tradeup_price):
 
     # Penalty factors
     float_penalty_factor = 1000
-    price_penalty_factor = 1
+    price_penalty_factor = 100
     
     fitness = 0
     if price_deviation <= 0:
-        fitness += 10
+        fitness += 20
     else:
         fitness -= price_deviation * price_penalty_factor
     
@@ -397,7 +395,7 @@ def main(start_index, end_index):
             total_price = sum(prices)
             total_float = sum(float_values)
             avg_float_value = total_float / num_items
-            
+
             price_deviation = total_price / num_items - tradeup_price
             float_deviation = avg_float_value - avg_float
 
@@ -449,18 +447,18 @@ if __name__ == "__main__":
     crossover_success=0
     crossover_failure=0
 
-    NGENS = 100
-    NUM_TRADEUPS= 10
+    NGENS = 400
+    NUM_TRADEUPS= 1
     TOTAL_NUM_ITEMS = 10*NUM_TRADEUPS
-    POP_SIZE = 100
+    POP_SIZE = 200
     NUM_PARENTS = POP_SIZE//2
 
-    
     parser = argparse.ArgumentParser(description='Process a range of tradeups.')
     parser.add_argument('start', type=int, help='Start index of tradeups to process')
     parser.add_argument('end', type=int, help='End index of tradeups to process')
     args = parser.parse_args()
 
-    main(args.start, args.end)
+
+    main(args.start,args.end)
 
     #profiler.print_stats()
