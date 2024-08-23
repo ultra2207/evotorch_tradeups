@@ -106,6 +106,8 @@ Importat Note:
     The final tradeup_expanded_items.json does end up having 28 valid profitable tradeups so project considered a success in theory
     but in reality there are too few tradeups for it to be considered worth doing, hence permanently shelved with no further development.
 
-FULLY SHELVED.
+After dollar is coded and running return to this and make a few changes:
+    Modify the tradeups_expanded_items.json into final_tradeups_unchecked.json which will also contain the profitablity and price and links to all the items.
+    Create a checker that will check to see if all these items are available for sale in a sinlge tradeups then the tradeup is added to final_tradeups_verified.json and the total profitablity and total expected profit is also printed to user.
 
 
