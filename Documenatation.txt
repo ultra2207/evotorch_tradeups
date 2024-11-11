@@ -20,10 +20,99 @@ by default it has the cheapest tradeup lists first.
 here example; the first 5/10 * num_items prices and corrosponding floats in best individual belong to revolution case and come first and then comes 5/10*num_items prices and corrospodning floats which belong to dreams and nightmares case. u need to actually get the live data from steam and then construct individual trdaeups eaech of 10 items using the tradeup data and ensuring the limits are met. U need to find as much steam data that corrosponds to the list above and from within this smaller steam-data u need to construct unique sets of 10 and then purchase them and then do the tradeup manually.
 
 
-Roadmap:
-V0.2 will be autoamted live data getting and unique tradeup set finding along with quick buy lins for all items
-V0.3 will be EVOTORCH entirely on gpu
-V0.4 will be an auotomated process ot run the control flow
-V0.5 will include a 1 click button to autobuy items and also have all optimizations outside EVOTORCH
-V0.6 will include a tradeupdoer (unintegrated,experimental)
-V0.7 will include a GUI
+The final tradeup_expanded_items.json is of the form:
+
+{
+  "Best Tradeup: Revolution Case (9) + Kilowatt Case (1)_Mil-Spec_0.0875_11.38": [
+    [
+      "P250  Re.built (Minimal Wear)_data.json",
+      "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M5034545037296709584A38764891451D9233198005804787110",
+      "Revolution Case",
+      "8.417999200290076",
+      "0.11096058040857315",
+      "5034545037296709584",
+      "38764891451"
+    ],
+    [
+      "MP5-SD  Liquidation (Factory New)_data.json",
+      "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M5034545037292954964A38763352506D4822979203440116529",
+      "Revolution Case",
+      "23.701497748357717",
+      "0.019285978749394417",
+      "5034545037292954964",
+      "38763352506"
+    ],
+    [
+      "SG 553  Cyberforce (Minimal Wear)_data.json",
+      "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M5036796837110579382A38755326505D9233200350354115481",
+      "Revolution Case",
+      "8.245499216677574",
+      "0.1022474393248558",
+      "5036796837110579382",
+      "38755326505"
+    ],
+    [
+      "MAG-7  Insomnia (Minimal Wear)_data.json",
+      "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M5030041437671007295A38776801380D6947557010779395703",
+      "Revolution Case",
+      "7.70499926802507",
+      "0.09967947751283646",
+      "5030041437671007295",
+      "38776801380"
+    ],
+    [
+      "P250  Re.built (Minimal Wear)_data.json",
+      "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M5041300436740240478A38776919071D7791977660415773004",
+      "Revolution Case",
+      "8.084499231972574",
+      "0.09749531000852585",
+      "5041300436740240478",
+      "38776919071"
+    ],
+    [
+      "P250  Re.built (Minimal Wear)_data.json",
+      "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M5034545037298031594A38769733326D7791977660415773004",
+      "Revolution Case",
+      "8.417999200290076",
+      "0.10278624296188354",
+      "5034545037298031594",
+      "38769733326"
+    ],
+    [
+      "Tec-9  Rebel (Minimal Wear)_data.json",
+      "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M5034545037301412774A38777282032D12017374758888493374",
+      "Revolution Case",
+      "7.808499258192571",
+      "0.09799350798130035",
+      "5034545037301412774",
+      "38777282032"
+    ],
+    [
+      "P250  Re.built (Minimal Wear)_data.json",
+      "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M5041300436740240718A38776822280D7791977660415773004",
+      "Revolution Case",
+      "8.084499231972574",
+      "0.10256356745958328",
+      "5041300436740240718",
+      "38776822280"
+    ],
+    [
+      "SG 553  Cyberforce (Minimal Wear)_data.json",
+      "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M5036796837110565222A38760039993D9233200350354115481",
+      "Revolution Case",
+      "8.245499216677574",
+      "0.1012558713555336",
+      "5036796837110565222",
+      "38760039993"
+    ],
+    [
+      "XM1014  Irezumi (Factory New)_data.json",
+      "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M5032293237473922242A38473964994D16628457543801092237",
+      "Kilowatt Case",
+      "25.023997622720227",
+      "0.032931722700595856",
+      "5032293237473922242",
+      "38473964994"
+    ]
+  ],
+}
